@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简明指南 · 爱游戏</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(145deg, #fff4e8 0%, #fde6d2 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 1rem 3rem;
+      line-height: 1.5;
+      color: #2c2b2a;
+    }
+
+    /* 整体容器 – 轻量卡片式布局 */
+    .container {
+      max-width: 1120px;
+      width: 100%;
+    }
+
+    /* 顶部导航 – 极简圆角药丸 */
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 0.75rem 1.25rem;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(2px);
+      padding: 0.9rem 1.6rem;
+      border-radius: 48px;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+      font-size: 0.95rem;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #5e4c3a;
+      font-weight: 500;
+      padding: 0.2rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .nav a:hover {
+      color: #b3541d;
+      border-bottom-color: #c57e4c;
+    }
+
+    .nav .brand {
+      font-weight: 600;
+      color: #7b4e2a;
+      margin-right: 0.25rem;
+    }
+
+    /* 主区域卡片 – 白色圆角卡片组 */
+    .card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2rem 2.2rem;
+      box-shadow: 0 8px 24px rgba(150, 90, 40, 0.08);
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .card-sm {
+      padding: 1.6rem 1.8rem;
+    }
+
+    /* hero 简明区 (融入卡片) */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #3b2a1b;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 680px;
+      color: #4c3d30;
+    }
+
+    .hero .meta-note {
+      font-size: 0.9rem;
+      color: #8b735d;
+      border-left: 4px solid #e4c7aa;
+      padding-left: 1rem;
+      background: #fcf6ef;
+      border-radius: 0 12px 12px 0;
+      padding: 0.7rem 1.2rem;
+      margin-top: 0.3rem;
+    }
+
+    /* 三个场景模块 – 等分布局 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 0.5rem 0 0.2rem;
+    }
+
+    .scene-item {
+      background: #fcf8f3;
+      border-radius: 20px;
+      padding: 1.4rem 1.2rem;
+      border: 1px solid #f0e4d6;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .scene-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(130, 80, 30, 0.06);
+    }
+
+    .scene-item h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #5f4029;
+      margin-bottom: 0.55rem;
+      letter-spacing: 0.01em;
+    }
+
+    .scene-item p {
+      font-size: 0.9rem;
+      color: #4e3d30;
+    }
+
+    .scene-item .badge {
+      display: inline-block;
+      background: #ddb692;
+      color: #2d1f13;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.15rem 0.75rem;
+      border-radius: 30px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* 常见说明 / 提醒 条目 */
+    .faq-compact {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 1.2rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f0e6dc;
+    }
+
+    .faq-row:last-child {
+      border-bottom: none;
+    }
+
+    .faq-label {
+      flex: 0 0 150px;
+      font-weight: 600;
+      color: #614630;
+      font-size: 0.9rem;
+    }
+
+    .faq-content {
+      flex: 1;
+      font-size: 0.9rem;
+      color: #3d332b;
+    }
+
+    .faq-content a {
+      color: #a65327;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #cfa77b;
+    }
+
+    .faq-content a:hover {
+      color: #7a3f1a;
+      border-bottom-style: solid;
+    }
+
+    /* 链接按钮风格 (用在句子外独立调用) */
+    .link-button {
+      display: inline-block;
+      background: #f5ede4;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      color: #6f4e30;
+      text-decoration: none;
+      border: 1px solid #e6d4c0;
+      transition: background 0.15s;
+    }
+
+    .link-button:hover {
+      background: #e6d1bc;
+    }
+
+    /* 底部 */
+    .footer-note {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #8f7a66;
+      letter-spacing: 0.02em;
+    }
+
+    /* 响应式 */
+    @media (max-width: 780px) {
+      .card {
+        padding: 1.6rem 1.2rem;
+      }
+
+      .scenes-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+
+      .faq-label {
+        flex-basis: 100%;
+      }
+
+      .nav {
+        padding: 0.6rem 1.2rem;
+        gap: 0.5rem 1rem;
+        border-radius: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 0.8rem 0.6rem 2rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 导航栏 -->
+  <nav class="nav">
+    <span class="brand">📋 指南</span>
+    <a href="#intro">快速了解</a>
+    <a href="#scenes">使用场景</a>
+    <a href="#faq">常见说明</a>
+    <a href="#access">访问提醒</a>
+  </nav>
+
+  <!-- hero + 简明介绍 卡片 -->
+  <div class="card" id="intro">
+    <div class="hero">
+      <h1>爱游戏 · 简易访问指引</h1>
+      <p>面向新用户的轻量导航：了解平台定位、典型用途以及访问前需要注意的几项基础信息，帮助您更顺畅地使用服务。</p>
+      <div class="meta-note">
+        <strong>一句话概括</strong> – 通过统一入口访问 <a href="https://appportal-aiyouxi.com.cn" style="color:#964b20;font-weight:600;text-decoration:none;">爱游戏</a>，
+        可获取聚合的游戏内容、活动资讯与个人中心功能。无需复杂配置，浏览器打开即可开始。
+      </div>
+    </div>
+  </div>
+
+  <!-- 三个场景模块 卡片 -->
+  <div class="card card-sm" id="scenes">
+    <h2 style="font-weight: 600; font-size: 1.25rem; margin-bottom: 1.2rem; color: #4f3827;">常见使用场景</h2>
+    <div class="scenes-grid">
+      <div class="scene-item">
+        <span class="badge">场景 ①</span>
+        <h3>快速浏览活动</h3>
+        <p>通过 <a href="https://appportal-aiyouxi.com.cn" style="color:#964b20;font-weight:500;text-decoration:none;">爱游戏</a> 首页聚合卡片，查阅当前进行中的限时任务、签到奖励和版本更新公告。无需逐个查找。</p>
+      </div>
+      <div class="scene-item">
+        <span class="badge">场景 ②</span>
+        <h3>账号与进度管理</h3>
+        <p>登录后可在个人面板查看绑定信息、游戏时长和成就进度。适合多款游戏玩家统一管理数据，减少反复登录。</p>
+      </div>
+      <div class="scene-item">
+        <span class="badge">场景 ③</span>
+        <h3>内容检索 & 社区</h3>
+        <p>利用站内搜索或分类标签查找攻略、视频及同人作品。社区板块支持发帖互动，请遵守各分区版规。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 常见说明 + 访问提醒 卡片 (FAQ 摘要风格) -->
+  <div class="card" id="faq">
+    <h2 style="font-weight: 600; font-size: 1.2rem; margin-bottom: 1rem; color: #4f3827;">❓ 常见说明与提醒</h2>
+    <div class="faq-compact">
+
+      <div class="faq-row">
+        <span class="faq-label">平台性质</span>
+        <span class="faq-content">聚合型游戏服务门户，非单一游戏客户端。使用前建议确认浏览器版本为 Chromium 90+ / Safari 14+ 以获得完整功能。</span>
+      </div>
+
+      <div class="faq-row">
+        <span class="faq-label">访问方式</span>
+        <span class="faq-content">直接通过浏览器访问 <a href="https://appportal-aiyouxi.com.cn">爱游戏</a> 即可；部分交互需注册或登录账号。推荐在稳定网络环境下操作。</span>
+      </div>
+
+      <div class="faq-row">
+        <span class="faq-label">隐私与安全</span>
+        <span class="faq-content">请勿向他人泄露账号凭证。平台采用 HTTPS 加密，但公共设备上仍建议使用后退出登录。如遇异常链接请勿点击。</span>
+      </div>
+
+      <div class="faq-row">
+        <span class="faq-label">内容规范</span>
+        <span class="faq-content">所有用户生成内容需符合社区准则。禁止发布违规信息、外挂及诈骗内容。举报功能位于每个内容页右下方。</span>
+      </div>
+
+      <div class="faq-row">
+        <span class="faq-label">技术提醒</span>
+        <span class="faq-content">若页面加载异常，可尝试清除缓存或更换 DNS。部分资源加载依赖 CDN，偶发延迟属正常现象。</span>
+      </div>
+
+    </div>
+
+    <!-- 一个额外的简洁提醒区块，内嵌链接 -->
+    <div style="margin-top: 1.5rem; background: #fcf4eb; border-radius: 18px; padding: 1rem 1.4rem; font-size: 0.9rem; border-left: 5px solid #cfaa86;">
+      <strong>📌 初次使用建议：</strong> 先花几分钟浏览 <a href="https://appportal-aiyouxi.com.cn">爱游戏</a> 的导航结构与设置页，
+      了解消息通知偏好和隐私选项，后续使用会更称心。
+    </div>
+  </div>
+
+  <!-- 底部轻量信息 -->
+  <div class="footer-note">
+    — 简明指南 · 信息密度适中 · 基于实际体验整理 —
+  </div>
+</div>
+</body>
+</html>

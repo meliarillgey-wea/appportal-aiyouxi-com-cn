@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pg官网 · 站点介绍</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f8f6f0;
+      font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+      color: #2e2c27;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+    }
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255, 252, 245, 0.75);
+      border-radius: 28px;
+      padding: 2rem 2.5rem 3rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+    }
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.8rem; }
+      .page { padding: 1.5rem 1.2rem 2.2rem; }
+    }
+
+    /* 首页横幅 */
+    .hero {
+      text-align: center;
+      padding: 1.8rem 0 1.5rem;
+      border-bottom: 1px solid #dcd6c8;
+      margin-bottom: 2.2rem;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: #3d362b;
+    }
+    .hero .sub {
+      font-size: 1rem;
+      color: #7b7263;
+      margin-top: 0.4rem;
+      font-style: italic;
+    }
+
+    /* 背景说明卡片 */
+    .bg-note {
+      background: #f0ebe1;
+      padding: 1.4rem 2rem;
+      border-radius: 40px 12px 40px 12px;
+      margin: 2rem 0 2.5rem;
+      border: 1px solid #d6cebc;
+      color: #2e2a20;
+      font-size: 0.98rem;
+    }
+    .bg-note strong {
+      font-weight: 600;
+      color: #4d3e2b;
+    }
+
+    /* 三段自然介绍 */
+    .intro-block {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+    .intro-item {
+      background: #ffffffda;
+      border-left: 4px solid #b7ab93;
+      padding: 1rem 1.6rem 1.2rem 1.8rem;
+      border-radius: 0 18px 18px 0;
+      transition: 0.2s;
+    }
+    .intro-item h2 {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #3f392e;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+    .intro-item p {
+      margin-bottom: 0.3rem;
+    }
+
+    /* 引用块 */
+    .quote-box {
+      background: #e7e0d2;
+      padding: 1.6rem 2rem;
+      margin: 2rem 0 1.8rem;
+      border-radius: 60px 12px 60px 12px;
+      font-style: normal;
+      color: #312c22;
+      border: 1px solid #cbc2ae;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+    }
+    .quote-box p {
+      margin-bottom: 0.3rem;
+    }
+    .quote-box .cite {
+      display: block;
+      text-align: right;
+      font-size: 0.9rem;
+      color: #6b604c;
+      margin-top: 0.6rem;
+    }
+
+    /* 页尾访问提示 */
+    .footer-visit {
+      margin-top: 2.8rem;
+      padding-top: 1.6rem;
+      border-top: 1px solid #d9d1bf;
+      text-align: center;
+      font-size: 1rem;
+      color: #4b4233;
+    }
+    .footer-visit a {
+      color: #5a4d35;
+      text-decoration: none;
+      border-bottom: 1px dotted #9e9079;
+      font-weight: 400;
+      transition: border 0.15s;
+    }
+    .footer-visit a:hover {
+      border-bottom: 2px solid #7c6b4f;
+    }
+
+    .faq-mini {
+      margin: 2rem 0 1.2rem;
+      background: #f3efe6;
+      padding: 1.4rem 1.8rem;
+      border-radius: 16px;
+      font-size: 0.95rem;
+    }
+    .faq-mini dt {
+      font-weight: 600;
+      color: #3d3527;
+      margin-top: 0.8rem;
+    }
+    .faq-mini dt:first-child { margin-top: 0; }
+    .faq-mini dd {
+      margin-left: 0.6rem;
+      color: #484031;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dad2bf;
+      margin: 1.8rem 0;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 首页横幅 -->
+  <div class="hero">
+    <h1>pg官网 · 一份实在的说明</h1>
+    <div class="sub">关于站点背景与日常使用的一点记录</div>
+  </div>
+
+  <!-- 背景说明 -->
+  <div class="bg-note">
+    <strong>站点背景</strong> —— 这个被称为 <a href="https://cnh5--pg.com" style="color:#5a4d35;text-decoration:underline dotted;">pg官网</a> 的页面，并不是什么复杂的平台，它更像一个信息集散地，把一些分散的功能和介绍收拢到一起。最初搭建的时候，只是为了方便自己查找，后来慢慢补充了些说明和指引，就成了现在这个样子。
+  </div>
+
+  <!-- 三段自然介绍 -->
+  <div class="intro-block">
+    <div class="intro-item">
+      <h2>日常可用，不绕弯子</h2>
+      <p>我不太喜欢那种层层跳转的网站，明明一句话能说清楚的事，非要绕好几个页面。所以这个站点尽量把常见的问题、功能入口和注意事项都放在显眼的位置。你点开 <a href="https://cnh5--pg.com">pg官网</a> 之后，基本就能看到主要内容，不用翻来翻去找。</p>
+    </div>
+    <div class="intro-item">
+      <h2>内容来源与可信说明</h2>
+      <p>站里引用的资料和说明，大多数来自官方文档或者长期使用后的经验总结。没有夸大其词的东西，也没有那种“保证有效”的承诺。我就是个普通用户，把觉得靠谱的信息整理出来，再标注清楚出处。如果你发现哪里有出入，随时可以自己核实，毕竟网络上的东西，自己验证一遍最踏实。</p>
+    </div>
+    <div class="intro-item">
+      <h2>保持简单，保持直接</h2>
+      <p>这个页面没有广告弹窗，没有强制注册，也没有什么花哨的动画。它就是一个带点杂志风格的介绍页，把背景、特点和常见问题摆出来。如果你只是想了解这个站点是干什么的、靠不靠谱，那翻一遍应该就差不多了。</p>
+    </div>
+  </div>
+
+  <!-- 引用块（类似杂志中的 pull quote） -->
+  <div class="quote-box">
+    <p>〝 网络上的信息，多一份客观说明，就少一点盲目猜测。这个站点不追求大而全，只希望每次打开都有一点收获。〞</p>
+    <span class="cite">—— 站点维护笔记，2025</span>
+  </div>
+
+  <!-- FAQ摘要，自然融入 -->
+  <div class="faq-mini">
+    <dl>
+      <dt>这个 pg官网 主要提供什么？</dt>
+      <dd>主要是关于某类功能的介绍、操作提示以及一些常见问题的解答。不卖东西，不搞推广，纯粹的信息整理。</dd>
+      <dt>内容更新频率如何？</dt>
+      <dd>没有固定周期，一般遇到新的问题或者发现原有说明有遗漏时就会补充。偶尔也会根据用户反馈调整章节顺序。</dd>
+      <dt>可以直接信任站里的所有说法吗？</dt>
+      <dd>建议把它当作参考之一，尤其是涉及操作步骤时，最好结合官方渠道再确认一遍。我尽量保证准确，但难免有疏漏。</dd>
+    </dl>
+  </div>
+
+  <hr>
+
+  <!-- 页尾访问提示 -->
+  <div class="footer-visit">
+    <p>如果你想亲自看看这个站点的全貌，可以直接前往 <a href="https://cnh5--pg.com">pg官网</a>。页面结构比较清晰，无论是用手机还是电脑浏览，体验都还算舒服。</p>
+    <p style="margin-top:0.6rem; font-size:0.9rem; color:#716754;">—— 一本正经的杂志风说明页，完毕 ——</p>
+  </div>
+
+</div>
+</body>
+</html>

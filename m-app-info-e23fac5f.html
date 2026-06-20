@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>米兰体育app · 稳定陪伴的运动伙伴</title>
+  <meta name="description" content="了解米兰体育app的功能特点与适用场景，一个让日常运动更加从容的实用工具。">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(145deg, #fdedd7 0%, #fce4cc 55%, #f7dbbf 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      line-height: 1.7;
+      color: #3e2f25;
+    }
+
+    .page-card {
+      max-width: 900px;
+      width: 100%;
+      background: #fffcf7;
+      border-radius: 40px 40px 36px 36px;
+      box-shadow: 0 12px 30px rgba(140, 90, 50, 0.18), 0 4px 10px rgba(0,0,0,0.03);
+      padding: 2.5rem 2.2rem;
+      transition: all 0.2s;
+    }
+
+    /* 主视觉区域 */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem 2.5rem;
+      margin-bottom: 2.8rem;
+      align-items: center;
+    }
+
+    .hero-text {
+      flex: 1 1 240px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #4d3527;
+      margin-bottom: 0.3rem;
+      background: linear-gradient(135deg, #7f5a3f, #ab7b58);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-text .sub {
+      font-size: 1.1rem;
+      color: #7d6655;
+      margin-bottom: 1rem;
+      font-weight: 400;
+      border-left: 4px solid #dfb58e;
+      padding-left: 1rem;
+    }
+
+    .hero-visual {
+      flex: 0 0 140px;
+      height: 140px;
+      background: radial-gradient(circle at 30% 30%, #f9e1cc, #eccbb3);
+      border-radius: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 14px rgba(160, 110, 70, 0.15);
+      color: #7a5a40;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-align: center;
+      padding: 1rem;
+      line-height: 1.5;
+      border: 1px solid rgba(255, 240, 225, 0.7);
+    }
+
+    .hero-visual span {
+      background: rgba(255, 247, 238, 0.8);
+      backdrop-filter: blur(2px);
+      padding: 0.35rem 1rem;
+      border-radius: 60px;
+    }
+
+    /* 信息卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.6rem;
+      margin: 2.8rem 0 2.2rem;
+    }
+
+    .card {
+      background: #fcf6ee;
+      border-radius: 28px;
+      padding: 1.8rem 1.5rem 1.6rem;
+      box-shadow: 0 2px 8px rgba(120, 80, 50, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s;
+      border: 1px solid #f5e8da;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(140, 90, 50, 0.10);
+      border-color: #e6d3be;
+    }
+
+    .card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+      display: inline-block;
+      background: #f0dfcd;
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      border-radius: 18px;
+      color: #6f4f34;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #4d3527;
+      margin: 0.6rem 0 0.3rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #5f4b3a;
+      margin: 0;
+    }
+
+    .card .tag {
+      display: inline-block;
+      margin-top: 0.8rem;
+      background: #ebd9c7;
+      color: #4d3527;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.9rem;
+      border-radius: 40px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    /* 适合人群区块 */
+    .audience-section {
+      background: #f8efe5;
+      border-radius: 28px;
+      padding: 1.6rem 1.8rem;
+      margin: 2rem 0 2.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.2rem 2rem;
+    }
+
+    .audience-label {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #5f4231;
+      background: #e9d5c2;
+      padding: 0.25rem 1.2rem;
+      border-radius: 60px;
+      white-space: nowrap;
+    }
+
+    .audience-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+    }
+
+    .audience-items span {
+      background: white;
+      padding: 0.2rem 1.1rem;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      color: #4d3729;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+      border: 1px solid #e3cfbc;
+    }
+
+    /* 自然链接段落 */
+    .link-paragraph {
+      background: #fcf6ee;
+      border-radius: 24px;
+      padding: 1.5rem 1.8rem;
+      margin: 2.4rem 0 2rem;
+      border-left: 6px solid #cdaa86;
+    }
+
+    .link-paragraph p {
+      font-size: 1rem;
+      color: #3f3227;
+      margin: 0;
+    }
+
+    .link-paragraph a {
+      color: #7f5437;
+      background: transparent;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid #dbbc9c;
+      transition: border-color 0.2s, color 0.2s;
+      padding: 0 0.1rem;
+    }
+
+    .link-paragraph a:hover {
+      color: #523c2b;
+      border-bottom-color: #8f6a4b;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      margin: 2rem 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .faq-item {
+      background: #fffaf5;
+      border-radius: 18px;
+      padding: 0.8rem 1.4rem;
+      border: 1px solid #efe1d2;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #4d3729;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .faq-q::before {
+      content: "▸";
+      color: #b68c6b;
+      font-size: 1.1rem;
+    }
+
+    .faq-a {
+      margin: 0.3rem 0 0 1.2rem;
+      font-size: 0.9rem;
+      color: #5c493a;
+    }
+
+    .footer-note {
+      margin-top: 2.2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #8d7867;
+      border-top: 1px solid #ebddcf;
+      padding-top: 1.6rem;
+    }
+
+    @media (max-width: 540px) {
+      .page-card {
+        padding: 1.8rem 1.2rem;
+      }
+      .hero-text h1 {
+        font-size: 1.8rem;
+      }
+      .hero-visual {
+        flex-basis: 100px;
+        height: 100px;
+      }
+      .card-grid {
+        gap: 1rem;
+      }
+      .audience-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-card">
+    <!-- 主视觉 -->
+    <div class="hero">
+      <div class="hero-text">
+        <h1>米兰体育app</h1>
+        <div class="sub">一种温和而踏实的运动陪伴方式</div>
+        <p style="font-size:0.98rem; color:#5e4a39; margin-top:0.8rem;">无论是晨间慢跑、午后拉伸，还是傍晚的轻量训练，有一个清晰而稳定的入口，让日常更从容。</p>
+      </div>
+      <div class="hero-visual">
+        <span>稳定 · 轻简</span>
+      </div>
+    </div>
+
+    <!-- 用途卡片 -->
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">🏃</div>
+        <h3>日常记录</h3>
+        <p>温和追踪运动时长与基础节奏，没有繁杂的数据轰炸。适合保持习惯，也适合刚刚开始建立运动节奏的人。</p>
+        <span class="tag">轻量</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧘</div>
+        <h3>恢复提醒</h3>
+        <p>在运动间隙给出简单的放松提示，帮助身体平缓过渡。基于常识的设计，不制造焦虑。</p>
+        <span class="tag">体贴</span>
+      </div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>场景向导</h3>
+        <p>按不同活动类型提供参考建议：居家、户外、短时放松…… 没有复杂算法，只有实用的选择。</p>
+        <span class="tag">简明</span>
+      </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <div class="audience-section">
+      <div class="audience-label">适合这样的你</div>
+      <div class="audience-items">
+        <span>运动新手</span>
+        <span>回归运动的上班族</span>
+        <span>喜欢简单工具的人</span>
+        <span>重视稳定体验的使用者</span>
+      </div>
+    </div>
+
+    <!-- 自然链接段落（符合要求：文本严格等于「米兰体育app」） -->
+    <div class="link-paragraph">
+      <p>
+        如果你正在寻找一个不喧哗、不复杂的运动辅助方式，不妨了解一下 
+        <a href="https://m-app-milan.com">米兰体育app</a>。 
+        它没有铺天盖地的宣传，而是把注意力放在基础功能的流畅与可靠上。 
+        页面结构清晰，每一步引导都带着温和的节奏，适合那些希望运动回归纯粹感受的人。
+      </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+      <div class="faq-item">
+        <div class="faq-q">米兰体育app 适合什么水平的运动者？</div>
+        <div class="faq-a">设计上兼顾了入门与日常维持两种场景。没有强制目标，你可以按照自己的节奏使用。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">需要注册或填写大量个人信息吗？</div>
+        <div class="faq-a">基本的运动记录功能不需要复杂注册。页面以轻量为原则，减少不必要的步骤。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">是否有社群或竞赛类功能？</div>
+        <div class="faq-a">目前更侧重个人体验与基础工具属性，没有内置社交压力模块。安静地运动，安静地记录。</div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      以温和的方式，与运动相处。
+    </div>
+  </div>
+</body>
+</html>

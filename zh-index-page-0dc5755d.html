@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中彩网 · 知识型导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background: #f5f9fc;
+            color: #1e2b3a;
+            line-height: 1.6;
+            padding: 0 1.5rem;
+        }
+
+        .site-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0 3rem;
+        }
+
+        /* ------- 顶部导航 ------- */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0.8rem 0 1.2rem;
+            border-bottom: 1px solid #d0e3ed;
+            margin-bottom: 2.5rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: #1f7a8c;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f7a8c;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c4a5e;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a:hover {
+            color: #1f7a8c;
+            border-bottom-color: #1f7a8c;
+        }
+
+        /* ------- Hero 区域 ------- */
+        .hero {
+            text-align: center;
+            padding: 2.5rem 1rem 2rem;
+            background: linear-gradient(145deg, #e6f2f7, #d0e7f0);
+            border-radius: 32px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            width: 160px;
+            height: 160px;
+            background: #1f7a8c15;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #103544;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.3px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #2c4a5e;
+            max-width: 680px;
+            margin: 0 auto 1.6rem;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: #1f7a8c;
+            color: white;
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 4px 12px rgba(31,122,140,0.2);
+        }
+
+        .hero-cta:hover {
+            background: #166373;
+            transform: translateY(-2px);
+        }
+
+        /* ------- 核心介绍 ------- */
+        .intro-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .intro-card {
+            background: white;
+            padding: 2rem 1.8rem;
+            border-radius: 24px;
+            box-shadow: 0 6px 20px rgba(0, 20, 30, 0.06);
+            border: 1px solid #e2eef5;
+        }
+
+        .intro-card h3 {
+            font-size: 1.3rem;
+            color: #1b5b6e;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .intro-card p {
+            font-size: 0.98rem;
+            color: #2f4a5c;
+        }
+
+        .intro-card a {
+            color: #1f7a8c;
+            font-weight: 500;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #b3d9e5;
+        }
+
+        .intro-card a:hover {
+            text-decoration-color: #1f7a8c;
+        }
+
+        /* ------- 三个场景模块(网格卡片) ------- */
+        .scenes-section {
+            margin-bottom: 3.5rem;
+        }
+
+        .scenes-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1b4a5a;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #1f7a8c;
+            padding-left: 1rem;
+        }
+
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+        }
+
+        .scene-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid #e0edf5;
+            box-shadow: 0 6px 18px rgba(0, 40, 50, 0.04);
+            transition: transform 0.15s, box-shadow 0.2s;
+            position: relative;
+        }
+
+        .scene-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(31, 122, 140, 0.10);
+            border-color: #b3d9e5;
+        }
+
+        .scene-icon {
+            width: 48px;
+            height: 48px;
+            background: #d7eef5;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            color: #1f7a8c;
+        }
+
+        .scene-card h4 {
+            font-size: 1.15rem;
+            color: #153b48;
+            margin-bottom: 0.6rem;
+        }
+
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #2c4a5e;
+        }
+
+        .scene-card .scene-tag {
+            display: inline-block;
+            background: #e2f0f6;
+            color: #1b5b6e;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            margin-top: 1rem;
+        }
+
+        /* ------- 常见说明 (FAQ 摘要) ------- */
+        .faq-summary {
+            background: white;
+            border-radius: 28px;
+            padding: 2.2rem 2rem;
+            border: 1px solid #dae9f2;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+            margin-bottom: 2.5rem;
+        }
+
+        .faq-summary h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1b4a5a;
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            padding: 0.9rem 0;
+            border-bottom: 1px dotted #d2e2ec;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #1b5b6e;
+            font-size: 1rem;
+        }
+
+        .faq-a {
+            color: #3d5a6b;
+            font-size: 0.95rem;
+        }
+
+        .faq-a a {
+            color: #1f7a8c;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 500;
+        }
+
+        /* ------- 底部提示 ------- */
+        .footer-note {
+            text-align: center;
+            padding: 1.5rem 0 0.5rem;
+            color: #5a7688;
+            font-size: 0.9rem;
+            border-top: 1px solid #d2e2ec;
+        }
+
+        .footer-note a {
+            color: #1f7a8c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* ------- 响应式 ------- */
+        @media (max-width: 900px) {
+            .intro-section {
+                grid-template-columns: 1fr;
+            }
+
+            .scene-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 0 1rem;
+            }
+
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.8rem;
+            }
+
+            .nav-links {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .faq-summary {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="site-wrapper">
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="logo-area">
+            <span class="logo-icon">中</span>
+            <span class="logo-text">中彩网</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">知识</a></li>
+            <li><a href="#">场景</a></li>
+            <li><a href="#">说明</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>持续关注的窗口</h1>
+        <p>一次访问是开始，再次回来是为了更深的了解。收藏一个可靠的站点，等于保留了一条长期可溯的线索。</p>
+        <a href="https://zh-index-zhcw.com" class="hero-cta">中彩网</a>
+    </section>
+
+    <!-- 核心介绍 (双卡片) -->
+    <section class="intro-section">
+        <div class="intro-card">
+            <h3>📌 再次访问的意义</h3>
+            <p>信息会流动，但索引不会。当你把 <a href="https://zh-index-zhcw.com">中彩网</a> 加入书签，就等于为自己留下了一个可反复校准的坐标。每次回来，你都能在熟悉的框架里找到新的内容脉络，而不必从零开始。</p>
+        </div>
+        <div class="intro-card">
+            <h3>📚 收藏即梳理</h3>
+            <p>收藏行为本质上是在构建个人知识路径。一个经常更新的站点会随着时间沉淀出层次感：从基础规则到进阶观察，从单一概念到交叉比较。保持关注，就是保持一种持续学习的姿态。</p>
+        </div>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <section class="scenes-section">
+        <h2 class="scenes-title">常见使用场景</h2>
+        <div class="scene-grid">
+            <div class="scene-card">
+                <div class="scene-icon">🔍</div>
+                <h4>回顾与核对</h4>
+                <p>当你在其他地方看到零散说法，可以回到这里做一次对照。信息的可靠性往往来自于反复验证，而不是单次记忆。</p>
+                <span class="scene-tag">查证场景</span>
+            </div>
+            <div class="scene-card">
+                <div class="scene-icon">📖</div>
+                <h4>横向比较</h4>
+                <p>同一个话题在不同时间点可能有不同解读。通过持续访问，你能观察到思路的演变，而不是孤立地看某一个点的结论。</p>
+                <span class="scene-tag">学习场景</span>
+            </div>
+            <div class="scene-card">
+                <div class="scene-icon">🔖</div>
+                <h4>内容整理</h4>
+                <p>把站点当作一个开放的知识仓，定期翻阅可以帮助你建立自己的笔记体系。收藏不等于拥有，但反复接触可以加深理解。</p>
+                <span class="scene-tag">积累场景</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <section class="faq-summary">
+        <h3>常见说明</h3>
+        <div class="faq-item">
+            <span class="faq-q">为什么需要主动收藏而不是依赖搜索？</span>
+            <span class="faq-a">搜索依赖关键词和即时算法，而收藏是一种主动选择。记住一个具体的地址，比每次重新过滤结果要高效——这也是很多人在浏览后选择将 <a href="https://zh-index-zhcw.com">中彩网</a> 加入书签的原因。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">再次访问时发现内容有变化怎么办？</span>
+            <span class="faq-a">内容更新是正常现象。一个保持活力的站点会定期调整结构或补充新信息，这恰恰是持续关注的价值所在。你可以对比新旧版本，观察变化的逻辑。</span>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">如何更高效地利用这个站点？</span>
+            <span class="faq-a">建议每次关注一个主题，而不是泛泛浏览。配合自己的笔记或标签系统，把站内信息拆解、重组，形成你自己的理解框架。</span>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="footer-note">
+        <p>将 <a href="https://zh-index-zhcw.com">中彩网</a> 置于收藏夹，让每一次回访都成为知识梳理的节点。</p>
+        <p style="margin-top: 0.6rem; opacity: 0.7;">—— 持续关注，自有脉络 ——</p>
+    </footer>
+</div>
+</body>
+</html>
